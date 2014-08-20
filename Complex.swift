@@ -10,12 +10,26 @@
  * This class can be used to represent both complex numbers and Gausian rational numbers
 */
 
+import UIKit
+
+
 struct Complex:Printable{
     var real:BaseNumeric
     var imaginary:BaseNumeric
     
     var description: String{
         return "\(self.real) + \(self.imaginary)i"
+    }
+    
+    var modululus: Double{
+        let squaredReal = real * real
+        let squaredImaginary = imaginary * imaginary
+        return sqrt((squaredImaginary + squaredReal).asDouble())
+    }
+    
+    var conjugate: Complex{
+        let inversImaginary = imaginary * -1
+        return Complex(real: real, imaginary: inversImaginary)
     }
     
     func combine(rhs:Complex, combineBehavior:(BaseNumeric, BaseNumeric) -> BaseNumeric) -> Complex{
@@ -25,6 +39,7 @@ struct Complex:Printable{
         return Complex(real: realPart, imaginary: imaginaryPart)
     }
 }
+
 func +(lhs:Complex, rhs:BaseNumeric) -> Complex{
     return lhs + Complex(real: rhs, imaginary: 0)
 }
