@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Lee Barney. All rights reserved.
 //
 
-import Foundation
+
 protocol BaseNumeric {
     func asDouble() -> Double
     func asInt() -> Int

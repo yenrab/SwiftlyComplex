@@ -10,7 +10,7 @@
  * This class can be used to represent both complex numbers and Gausian rational numbers
 */
 
-import UIKit
+import Foundation
 
 
 struct Complex:Printable{
